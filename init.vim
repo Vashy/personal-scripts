@@ -18,6 +18,7 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'shaunsingh/solarized.nvim'
 Plug 'folke/tokyonight.nvim'
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
