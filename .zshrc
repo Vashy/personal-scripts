@@ -114,6 +114,7 @@ source $ZSH/oh-my-zsh.sh
 # eval $(ssh-agent)
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+export DRIVE="/mnt/g/Other computers/Il mio computer"
 export DOWNLOADS="/mnt/c/Users/timoty.granziero/Downloads"
 export PROJECTS_HOME="${HOME}/Work/Euronovate/Projects"
 export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")
@@ -122,8 +123,27 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
 # Aliases
 alias dcd="docker compose down"
 alias dcu="docker compose up -d --build"
 alias open="explorer.exe"
+
+# Sets vi keybindings
+set -o vi
+
+# show different cursor based on vi mode
+zle-keymap-select () {
+if [ $KEYMAP = vicmd ]; then
+    printf "\033[2 q"
+else
+    printf "\033[6 q"
+fi
+}
+zle -N zle-keymap-select
+zle-line-init () {
+    zle -K viins
+    printf "\033[6 q"
+}
+zle -N zle-line-init
+bindkey -v
+

@@ -19,6 +19,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'shaunsingh/solarized.nvim'
 Plug 'folke/tokyonight.nvim'
 Plug 'vim-airline/vim-airline'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
@@ -38,5 +41,8 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 """"""""
 " Misc "
 """"""""
+
+" \p pastes copied text into _ (without overriding paste buffer)
+xnoremap <leader>p "_dP
 
 colorscheme tokyonight
