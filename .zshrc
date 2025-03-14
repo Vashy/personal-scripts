@@ -147,3 +147,7 @@ zle-line-init () {
 zle -N zle-line-init
 bindkey -v
 
+# Fix Github ssh-agent
+eval "$(ssh-agent -s)"
+ssh-add $HOME/.ssh/github
+
