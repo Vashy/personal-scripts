@@ -23,8 +23,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'shaunsingh/solarized.nvim'
 Plug 'folke/tokyonight.nvim'
 Plug 'vim-airline/vim-airline'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 Plug 'junegunn/goyo.vim'
 
 call plug#end()
@@ -46,7 +48,8 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " FZF "
 """""""
 
-nnoremap <C-n> :Files<CR>
+nnoremap <C-n> <cmd>Telescope find_files<cr>
+" nnoremap <leader>ff <cmd>Telescope find_files<cr>
 
 """"""""
 " Misc "
@@ -61,5 +64,7 @@ nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap <C-f> <C-f>zz
 nnoremap <C-b> <C-b>zz
+nnoremap n nzz
+nnoremap N Nzz
 
 colorscheme tokyonight
