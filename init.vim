@@ -31,6 +31,10 @@ Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
+" Map <leader> to <SPACE>
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
 """"""""""""
 " NerdTREE "
 """"""""""""
@@ -45,10 +49,18 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 
 """""""
-" FZF "
+" FZF/Telescope "
 """""""
 
-nnoremap <C-n> <cmd>Telescope find_files<cr>
+" filename_first doesn't work - needs to switch to lua maybe or switch to
+" master branch https://github.com/nvim-telescope/telescope.nvim/issues/2014
+nnoremap <C-n> <cmd>Telescope find_files no_ignore=true filename_first=true<cr>
+" not working: nnoremap <C-N> <cmd>Telescope find_files no_ignore=true<cr>
+nnoremap <leader>n <cmd>Telescope find_files filename_first=true<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+
+" Requires ripgrep: `sudo apt install ripgrep`
+nnoremap <leader>f <cmd>Telescope live_grep filename_first=true<cr>
 " nnoremap <leader>ff <cmd>Telescope find_files<cr>
 
 """"""""
