@@ -1,0 +1,26 @@
+# Windows location: $HOME/AppData/Roaming/alacritty/alacritty.toml
+
+[window]
+
+opacity = 0.98
+
+# padding.x = 10
+# padding.y = 10
+
+decorations = "Full"
+decorations_theme_variant = "Dark" # "Light"
+
+[terminal.shell]
+
+program = "ubuntu"
+
+[font]
+
+# normal.family = "Overpass"
+# bold.family = "Overpass"
+# italic.family = "Overpass"
+# bold_italic.family = "Overpass"
+
+size = 14.0
+
+[terminal]
