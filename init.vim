@@ -55,15 +55,16 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " filename_first doesn't work - needs to switch to lua maybe or switch to
 " master branch https://github.com/nvim-telescope/telescope.nvim/issues/2014
 nnoremap <C-n> <cmd>lua require('telescope.builtin').find_files({ no_ignore=true, prompt_title="Find Files (including .gitignore)" })<CR>
-" not working: nnoremap <C-N> <cmd>Telescope find_files no_ignore=true<cr>
-nnoremap <leader>n <cmd>Telescope find_files filename_first=true<cr>
+nnoremap <leader>n <cmd>Telescope find_files<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 
 " Requires ripgrep: `sudo apt install ripgrep`
-nnoremap <leader>f <cmd>Telescope live_grep filename_first=true<cr>
+nnoremap <leader>f <cmd>Telescope live_grep<cr>
 
 " Strict search (no 'smart' character skips with -F flag)
 nnoremap <leader>F <cmd>lua require('telescope.builtin').live_grep({ additional_args = function() return { "-F" } end, prompt_title="Live Grep (strict)"})<cr>
+
+nnoremap <leader>e <cmd>Telescope oldfiles<cr>
 
 """"""""
 " Misc "
@@ -82,3 +83,13 @@ nnoremap n nzz
 nnoremap N Nzz
 
 colorscheme tokyonight
+
+" breaks linter so it's at the bottom
+
+lua << EOF
+require('telescope').setup({
+  defaults = {
+    path_display = { "truncate" } -- Ensures file names stay visible
+  }
+})
+EOF
