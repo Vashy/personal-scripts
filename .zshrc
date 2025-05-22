@@ -127,6 +127,7 @@ export NVM_DIR="$HOME/.nvm"
 alias dcd="docker compose down"
 alias dcu="docker compose up -d --build"
 alias open="explorer.exe"
+alias rgf='rg --files | rg'
 
 # Sets vi keybindings
 set -o vi

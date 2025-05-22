@@ -73,6 +73,7 @@ nnoremap <leader>e <cmd>Telescope oldfiles<cr>
 " \p pastes copied text into _ (without overriding paste buffer)
 xnoremap <leader>p "_dP
 
+nnoremap <leader>a ggVG
 
 " Adds zz movement to page up/down movements
 nnoremap <C-d> <C-d>zz
